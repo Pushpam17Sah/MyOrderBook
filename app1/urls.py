@@ -10,3 +10,5 @@ router.register('item', views.ItemModelViewSet)
 urlpatterns = [
     path('',include(router.urls)),
 ]
+
+#test
