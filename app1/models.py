@@ -13,7 +13,7 @@ class Supplier(models.Model):
     whatsapp=models.CharField(max_length=15,blank=True,null=True)
     email=models.EmailField(max_length=254,blank=True,null=True)
     shop_name=models.CharField(max_length=30,blank=True,null=True)
-    admin_id=models.ForeignKey(Admin,on_delete=models.CASCADE)
+    admin_id=models.ForeignKey(Admin,on_delete=models.CASCADE,related_name='admin')
 
     def __str__(self) :
         return self.name
@@ -26,7 +26,7 @@ class Item(models.Model):
     upload_image=models.ImageField(blank=True,null=True)
     status = models.BooleanField(default=False)
     # admin_id=models.ForeignKey(Admin,on_delete=models.CASCADE)
-    supplier_id=models.ForeignKey(Supplier,on_delete=models.CASCADE)
+    supplier_id=models.ForeignKey(Supplier,on_delete=models.CASCADE,related_name='items')
     # supplier_id=models.OneToOneField(Supplier,on_delete=models.CASCADE)
 
     def __str__(self):

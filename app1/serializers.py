@@ -7,11 +7,13 @@ class AdminSerializer(serializers.ModelSerializer):
         fields="__all__"
 
 class SupplierSerializer(serializers.ModelSerializer):
+    items=serializers.StringRelatedField(many=True, read_only=True)
+
     class Meta:
         model=Supplier
-        fields="__all__"
+        fields=['id','name','phone_no','whatsapp','email','shop_name','admin_id','items']
 
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model=Item
-        fields="__all__"
+        fields=['id','item_name','date_added','upload_image','status','supplier_id']
